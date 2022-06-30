@@ -12,10 +12,16 @@ function render() {
     const fruitAndVegList = document.createElement("li");
     allItemsListed.append(fruitAndVegList);
 
+    const imgDiv = document.createElement("div");
+    imgDiv.setAttribute("class", "store--item-icon");
+    fruitAndVegList.append(imgDiv);
     const fruitAndVegImg = document.createElement("img");
-    fruitAndVegList.setAttribute("class", "store--item-icon");
     fruitAndVegImg.src = `assets/icons/${grocerItems.id}.svg`;
-    fruitAndVegList.append(fruitAndVegImg);
+    imgDiv.append(fruitAndVegImg);
+
+    const addToCartBttn = document.createElement("button");
+    fruitAndVegList.append(addToCartBttn);
+    addToCartBttn.innerText = "add to cart".toUpperCase();
   }
 }
 
