@@ -2,23 +2,21 @@
 const storeItems = document.querySelector(".store--item-list");
 
 function render() {
-  //   console.log("store Items", storeItems);
-  //   for (let i = 0; index < state.length; index++) {
-  //     const grocerItems = state[i];
-  //   }
-  const allItemsListed = document.createElement("ul");
-  allItemsListed.setAttribute("class", "item-list store--item-list");
-  storeItems.append(allItemsListed);
+  for (let i = 0; i < state.items.length; i++) {
+    const grocerItems = state.items[i];
 
-  const beetroot = document.createElement("li");
-  allItemsListed.append(beetroot);
+    const allItemsListed = document.createElement("ul");
+    allItemsListed.setAttribute("class", "item-list store--item-list");
+    storeItems.append(allItemsListed);
 
-  const beetrootPic = document.createElement("img");
-  beetroot.setAttribute("class", "store--item-icon");
-  beetrootPic.src = `assets/icons/${state.items[0].id}.svg`;
-  beetroot.append(beetrootPic);
+    const fruitAndVegList = document.createElement("li");
+    allItemsListed.append(fruitAndVegList);
 
-  //   console.log("I am loaded");
+    const fruitAndVegImg = document.createElement("img");
+    fruitAndVegList.setAttribute("class", "store--item-icon");
+    fruitAndVegImg.src = `assets/icons/${grocerItems.id}.svg`;
+    fruitAndVegList.append(fruitAndVegImg);
+  }
 }
 
 function run() {
