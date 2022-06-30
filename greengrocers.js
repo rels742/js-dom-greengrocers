@@ -33,43 +33,46 @@ function renderShopItems() {
 }
 
 function renderCartItems() {
-  const cartContainerList = document.querySelector(".cart--item-list");
-  console.log(cartContainerList);
-  cartContainerList.innerHTML = "";
+  const cartContainerUl = document.querySelector(".cart--item-list");
+  //   console.log(cartContainerUl);
+  cartContainerUl.innerHTML = "";
+
   for (let i = 0; i < state.cart.length; i++) {
     const cartItems = state.cart[i];
 
-    // Cart Items Container Section
-    // const cartContainerList = document.createElement("ul");
-    // cartContainerList.setAttribute("class", "item-list cart--item-list");
-    // cart.append(cartContainerList);
-
-    const cartItemList = document.createElement("li");
-    cartContainerList.append(cartItemList);
+    const cartItemLi = document.createElement("li");
+    cartContainerUl.append(cartItemLi);
 
     const cartItemImg = document.createElement("img");
     cartItemImg.setAttribute("class", "cart--item-icon");
     cartItemImg.src = `assets/icons/${cartItems.id}.svg`;
-    cartItemList.append(cartItemImg);
+    cartItemLi.append(cartItemImg);
 
     const cartItemName = document.createElement("p");
-    cartItemList.append(cartItemName);
+    cartItemLi.append(cartItemName);
     cartItemName.innerText = cartItems.name;
 
     const cartDecrementBttn = document.createElement("button");
     cartDecrementBttn.setAttribute("class", "quantity-btn remove-btn center");
     cartDecrementBttn.innerText = "-";
-    cartItemList.append(cartDecrementBttn);
+    cartItemLi.append(cartDecrementBttn);
 
     const cartQuantity = document.createElement("span");
     cartQuantity.setAttribute("class", "quantity-text center");
     cartQuantity.innerText = "1";
-    cartItemList.append(cartQuantity);
+    cartItemLi.append(cartQuantity);
 
     const cartIncrementBttn = document.createElement("button");
     cartIncrementBttn.setAttribute("class", "quantity-btn add-btn center");
     cartIncrementBttn.innerText = "+";
-    cartItemList.append(cartIncrementBttn);
+    cartItemLi.append(cartIncrementBttn);
+
+    cartIncrementBttn.addEventListener("click", function () {
+      console.log("I am trying to add more bell peppers to my cart");
+
+      copiedState.quantity = 1;
+      console.log(copiedState);
+    });
   }
 }
 
